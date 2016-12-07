@@ -73,3 +73,6 @@ pom.xml.versionsBackup
 # Misc
 *.swp
 transaction.log
+
+# config files
+*.properties
