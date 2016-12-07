@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @EnableAsync
 @SpringBootApplication
-public class EmployeeManageApplication extends SpringBootServletInitializer {
+public class EmployeeManageApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EmployeeManageApplication.class, args);
