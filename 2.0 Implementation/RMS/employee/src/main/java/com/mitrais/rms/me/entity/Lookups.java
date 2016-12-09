@@ -1,15 +1,13 @@
 package com.mitrais.rms.me.entity;
+
 import javax.persistence.*;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
 public class Lookups {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "data_code")
     private String dataCode;
@@ -21,11 +19,11 @@ public class Lookups {
     @JoinColumn(name = "data_type", referencedColumnName = "type")
     private LookupMaster lookupMaster;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,12 +1,10 @@
 package com.mitrais.rms.me.entity;
+
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
-@Table(name = "lookup_master", schema = "rmsolution")
+@Table(name = "lookup_master")
 public class LookupMaster {
 
     @Id

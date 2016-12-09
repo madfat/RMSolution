@@ -16,10 +16,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
-
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -49,7 +45,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         for (Role role : credential.getRoles()) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getCode()));
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getDataCode()));
         }
 
         User userDetails = new User(credential.getPassword(),
@@ -73,7 +69,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         public Collection<? extends GrantedAuthority> getAuthorities() {
             Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
             for (Role role : getRoles()) {
-                grantedAuthorities.add(new SimpleGrantedAuthority(role.getCode()));
+                grantedAuthorities.add(new SimpleGrantedAuthority(role.getDataCode()));
             }
             return grantedAuthorities;
         }

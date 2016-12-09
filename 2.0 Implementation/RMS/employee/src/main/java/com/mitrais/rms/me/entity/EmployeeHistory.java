@@ -1,19 +1,17 @@
 package com.mitrais.rms.me.entity;
-import javax.persistence.*;
 
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
-@Table(name = "emp_history", schema = "rmsolution")
+@Table(name = "emp_history")
 public class EmployeeHistory {
 
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "start_date")
     private Date startDate;
@@ -28,7 +26,7 @@ public class EmployeeHistory {
     private String jobDesc;
 
     @Column(name = "active_ind")
-    private int activeInd;
+    private boolean activeInd;
 
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
@@ -43,8 +41,7 @@ public class EmployeeHistory {
 
     public EmployeeHistory(){ }
 
-    public EmployeeHistory(Date startDate, Date endDate, String employer, String jobDesc, int activeInd,
-                           Timestamp lastModDate, String lastModUser, Employee employee) {
+    public EmployeeHistory(Date startDate, Date endDate, String employer, String jobDesc, boolean activeInd, Timestamp lastModDate, String lastModUser, Employee employee) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.employer = employer;
@@ -55,11 +52,11 @@ public class EmployeeHistory {
         this.employee = employee;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -95,14 +92,13 @@ public class EmployeeHistory {
         this.jobDesc = jobDesc;
     }
 
-    public int getActiveInd() {
+    public boolean getActiveInd() {
         return activeInd;
     }
 
-    public void setActiveInd(Byte activeInd) {
+    public void setActiveInd(boolean activeInd) {
         this.activeInd = activeInd;
     }
-
 
     public Timestamp getLastModDate() {
         return lastModDate;

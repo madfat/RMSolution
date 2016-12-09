@@ -3,21 +3,19 @@ package com.mitrais.rms.me.entity;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
-@Table(name = "Address")
+@Table(name = "address")
 public class Address {
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "address")
     private String address;
 
     @Column(name = "active_ind")
-    private int activeInd;
+    private boolean activeInd;
 
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
@@ -32,8 +30,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(String address, int activeInd, Timestamp lastModDate,
-                   String lastModUser, Employee employee) {
+    public Address(String address, boolean activeInd, Timestamp lastModDate, String lastModUser, Employee employee) {
         this.address = address;
         this.activeInd = activeInd;
         this.lastModDate = lastModDate;
@@ -41,11 +38,11 @@ public class Address {
         this.employee = employee;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,11 +54,11 @@ public class Address {
         this.address = address;
     }
 
-    public int getActiveInd() {
+    public boolean getActiveInd() {
         return activeInd;
     }
 
-    public void setActiveInd(Byte activeInd) {
+    public void setActiveInd(boolean activeInd) {
         this.activeInd = activeInd;
     }
 

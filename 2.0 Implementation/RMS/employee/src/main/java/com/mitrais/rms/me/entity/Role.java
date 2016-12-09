@@ -1,49 +1,60 @@
 package com.mitrais.rms.me.entity;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
 public class Role {
 
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
-    @Column(name = "code")
+    @Column(name = "data_type")
     @NotNull
-    private String code;
+    private String dataType;
 
+    @Column(name = "data_code")
     @NotNull
-    @Column(name = "description")
-    private String description;
+    private String dataCode;
 
-    public Integer getId() {
+    @Column(name = "data_desc")
+    @NotNull
+    private String dataDesc;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getDataType() {
+        return dataType;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDataCode() {
+        return dataCode;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDataCode(String dataCode) {
+        this.dataCode = dataCode;
+    }
+
+    public String getDataDesc() {
+        return dataDesc;
+    }
+
+    public void setDataDesc(String dataDesc) {
+        this.dataDesc = dataDesc;
     }
 }

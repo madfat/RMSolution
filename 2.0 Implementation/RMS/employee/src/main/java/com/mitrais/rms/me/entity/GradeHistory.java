@@ -1,19 +1,17 @@
 package com.mitrais.rms.me.entity;
-import javax.persistence.*;
 
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
-@Table(name = "grade_history", schema = "rmsolution")
+@Table(name = "grade_history")
 public class GradeHistory {
 
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "start_date")
     private Date startDate;
@@ -23,6 +21,9 @@ public class GradeHistory {
 
     @Column(name = "grade")
     private String grade;
+
+    @Column(name = "dev_stage")
+    private int devStage;
 
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
@@ -36,21 +37,21 @@ public class GradeHistory {
 
     public GradeHistory() { }
 
-    public GradeHistory(Date startDate, Date endDate, String grade,
-                        Timestamp lastModDate, String lastModUser, Employee employee) {
+    public GradeHistory(Date startDate, Date endDate, String grade, int devStage, Timestamp lastModDate, String lastModUser, Employee employee) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.grade = grade;
+        this.devStage = devStage;
         this.lastModDate = lastModDate;
         this.lastModUser = lastModUser;
         this.employee = employee;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,6 +77,14 @@ public class GradeHistory {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public int getDevStage() {
+        return devStage;
+    }
+
+    public void setDevStage(int devStage) {
+        this.devStage = devStage;
     }
 
     public Timestamp getLastModDate() {

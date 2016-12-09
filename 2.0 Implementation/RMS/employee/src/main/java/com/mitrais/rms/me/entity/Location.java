@@ -1,20 +1,26 @@
 package com.mitrais.rms.me.entity;
-import javax.persistence.*;
 
+import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
+@Table(name = "location")
 public class Location {
 
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "branch_office")
     private String branchOffice;
+
+    @Column(name = "relocation_startdate")
+    private Date relocationStartDate;
+
+    @Column(name = "relocation_enddate")
+    private Date relocationEndDate;
 
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
@@ -22,29 +28,26 @@ public class Location {
     @Column(name = "last_mod_user")
     private String lastModUser;
 
-    @Column(name = "active_ind")
-    private Byte activeInd;
-
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
-    public Location() { }
+    public Location() {}
 
-    public Location(String branchOffice, Timestamp lastModDate,
-                    String lastModUser, Byte activeInd, Employee employee) {
+    public Location(String branchOffice, Date relocationStartDate, Date relocationEndDate, Timestamp lastModDate, String lastModUser, Employee employee) {
         this.branchOffice = branchOffice;
+        this.relocationStartDate = relocationStartDate;
+        this.relocationEndDate = relocationEndDate;
         this.lastModDate = lastModDate;
         this.lastModUser = lastModUser;
-        this.activeInd = activeInd;
         this.employee = employee;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,6 +57,22 @@ public class Location {
 
     public void setBranchOffice(String branchOffice) {
         this.branchOffice = branchOffice;
+    }
+
+    public Date getRelocationStartDate() {
+        return relocationStartDate;
+    }
+
+    public void setRelocationStartDate(Date relocationStartDate) {
+        this.relocationStartDate = relocationStartDate;
+    }
+
+    public Date getRelocationEndDate() {
+        return relocationEndDate;
+    }
+
+    public void setRelocationEndDate(Date relocationEndDate) {
+        this.relocationEndDate = relocationEndDate;
     }
 
     public Timestamp getLastModDate() {
@@ -70,14 +89,6 @@ public class Location {
 
     public void setLastModUser(String lastModUser) {
         this.lastModUser = lastModUser;
-    }
-
-    public Byte getActiveInd() {
-        return activeInd;
-    }
-
-    public void setActiveInd(Byte activeInd) {
-        this.activeInd = activeInd;
     }
 
     public Employee getEmployee() {

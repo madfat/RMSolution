@@ -1,18 +1,17 @@
 package com.mitrais.rms.me.entity;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
-@Table(name = "Dependent")
+@Table(name = "dependent")
 public class Dependent {
 
     @Id
     @Column(name = "id")
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
     @Column(name = "type")
     private String type;
@@ -26,6 +25,9 @@ public class Dependent {
     @Column(name = "dob")
     private Date dob;
 
+    @Column(name = "active_ind")
+    private int activeInd;
+
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
 
@@ -36,11 +38,24 @@ public class Dependent {
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
-    public Integer getId() {
+    public Dependent() {}
+
+    public Dependent(String type, String firstName, String lastName, Date dob, int activeInd, Timestamp lastModDate, String lastModUser, Employee employee) {
+        this.type = type;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.activeInd = activeInd;
+        this.lastModDate = lastModDate;
+        this.lastModUser = lastModUser;
+        this.employee = employee;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -74,6 +89,14 @@ public class Dependent {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public int getActiveInd() {
+        return activeInd;
+    }
+
+    public void setActiveInd(Byte activeInd) {
+        this.activeInd = activeInd;
     }
 
     public Timestamp getLastModDate() {

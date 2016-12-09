@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Set;
 
-/**
- * Created by Toan_H on 11/24/2016.
- */
 @Entity
+@Table(name = "employee")
 public class Employee {
 
     @Id
@@ -16,29 +14,11 @@ public class Employee {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "grade")
-    private String grade;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "dob")
     private Date dob;
-
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "company")
-    private String company;
-
-    @Column(name = "employeement_status")
-    private String employeementStatus;
 
     @Column(name = "gender")
     private String gender;
@@ -46,14 +26,38 @@ public class Employee {
     @Column(name = "marital_status")
     private String maritalStatus;
 
-    @Column(name = "dependent")
-    private Integer dependent;
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "hire_date")
+    private Date hireDate;
+
+    @Column(name = "employment_status")
+    private String employmentStatus;
 
     @Column(name = "nationality")
     private String nationality;
 
-    @Column(name = "hire_date")
-    private Date hireDate;
+    @Column(name = "business_unit")
+    private String businessUnit;
+
+    @Column(name = "division")
+    private String division;
+
+    @Column(name = "job_family")
+    private String jobFamily;
+
+    @Column(name = "stream")
+    private String stream;
+
+    @Column(name = "job_title")
+    private String jobTitle;
+
+    @Column(name = "reporting_manager")
+    private int reportingManager;
 
     @Column(name = "retire_date")
     private Date retireDate;
@@ -63,6 +67,15 @@ public class Employee {
 
     @Column(name = "active_ind")
     private int activeInd;
+
+    @Column(name = "last_degree")
+    private String lastDegree;
+
+    @Column(name = "recruit_from")
+    private String recruitFrom;
+
+    @Column(name = "contract_expiry_date")
+    private Date contractExpiryDate;
 
     @Column(name = "last_mod_date")
     private Timestamp lastModDate;
@@ -88,27 +101,35 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String grade, Date dob, String phone, String email,
-                    String employeementStatus, String gender, String maritalStatus, Integer dependent,
-                    String nationality, Date hireDate, Date retireDate, Date suspendDate, int activeInd,
-                    Timestamp lastModDate, String lastModUser) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.grade = grade;
+    public Employee(String name, Date dob, String gender, String maritalStatus, String phone, String email, Date hireDate, String employmentStatus, String nationality, String businessUnit, String division, String jobFamily, String stream, String jobTitle, int reportingManager, Date retireDate, Date suspendDate, int activeInd, String lastDegree, String recruitFrom, Date contractExpiryDate, Timestamp lastModDate, String lastModUser, Set<Address> addresses, Set<Dependent> dependents, Set<EmployeeHistory> empHistories, Set<GradeHistory> gradeHistories, Set<Location> locations) {
+        this.name = name;
         this.dob = dob;
-        this.phone = phone;
-        this.email = email;
-        this.employeementStatus = employeementStatus;
         this.gender = gender;
         this.maritalStatus = maritalStatus;
-        this.dependent = dependent;
-        this.nationality = nationality;
+        this.phone = phone;
+        this.email = email;
         this.hireDate = hireDate;
+        this.employmentStatus = employmentStatus;
+        this.nationality = nationality;
+        this.businessUnit = businessUnit;
+        this.division = division;
+        this.jobFamily = jobFamily;
+        this.stream = stream;
+        this.jobTitle = jobTitle;
+        this.reportingManager = reportingManager;
         this.retireDate = retireDate;
         this.suspendDate = suspendDate;
         this.activeInd = activeInd;
+        this.lastDegree = lastDegree;
+        this.recruitFrom = recruitFrom;
+        this.contractExpiryDate = contractExpiryDate;
         this.lastModDate = lastModDate;
         this.lastModUser = lastModUser;
+        this.addresses = addresses;
+        this.dependents = dependents;
+        this.empHistories = empHistories;
+        this.gradeHistories = gradeHistories;
+        this.locations = locations;
     }
 
     public Integer getId() {
@@ -119,28 +140,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getDob() {
@@ -149,6 +154,22 @@ public class Employee {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
     public String getPhone() {
@@ -167,41 +188,21 @@ public class Employee {
         this.email = email;
     }
 
-    public String getEmployeementStatus() {
-        return employeementStatus;
+    public Date getHireDate() {
+        return hireDate;
     }
 
-    public void setEmployeementStatus(String employeementStatus) {
-        this.employeementStatus = employeementStatus;
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
     }
 
-
-    public String getGender() {
-        return gender;
+    public String getEmploymentStatus() {
+        return employmentStatus;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setEmploymentStatus(String employmentStatus) {
+        this.employmentStatus = employmentStatus;
     }
-
-
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-
-    public Integer getDependent() {
-        return dependent;
-    }
-
-    public void setDependent(Integer dependent) {
-        this.dependent = dependent;
-    }
-
 
     public String getNationality() {
         return nationality;
@@ -211,15 +212,53 @@ public class Employee {
         this.nationality = nationality;
     }
 
-
-    public Date getHireDate() {
-        return hireDate;
+    public String getBusinessUnit() {
+        return businessUnit;
     }
 
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
+    public void setBusinessUnit(String businessUnit) {
+        this.businessUnit = businessUnit;
     }
 
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public String getJobFamily() {
+        return jobFamily;
+    }
+
+    public void setJobFamily(String jobFamily) {
+        this.jobFamily = jobFamily;
+    }
+
+    public String getStream() {
+        return stream;
+    }
+
+    public void setStream(String stream) {
+        this.stream = stream;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public int getReportingManager() {
+        return reportingManager;
+    }
+
+    public void setReportingManager(int reportingManager) {
+        this.reportingManager = reportingManager;
+    }
 
     public Date getRetireDate() {
         return retireDate;
@@ -237,13 +276,36 @@ public class Employee {
         this.suspendDate = suspendDate;
     }
 
-
     public int getActiveInd() {
         return activeInd;
     }
 
-    public void setActiveInd(Byte activeInd) {
+    public void setActiveInd(int activeInd) {
         this.activeInd = activeInd;
+    }
+
+    public String getLastDegree() {
+        return lastDegree;
+    }
+
+    public void setLastDegree(String lastDegree) {
+        this.lastDegree = lastDegree;
+    }
+
+    public String getRecruitFrom() {
+        return recruitFrom;
+    }
+
+    public void setRecruitFrom(String recruitFrom) {
+        this.recruitFrom = recruitFrom;
+    }
+
+    public Date getContractExpiryDate() {
+        return contractExpiryDate;
+    }
+
+    public void setContractExpiryDate(Date contractExpiryDate) {
+        this.contractExpiryDate = contractExpiryDate;
     }
 
     public Timestamp getLastModDate() {
@@ -300,17 +362,5 @@ public class Employee {
 
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public void setActiveInd(int activeInd) {
-        this.activeInd = activeInd;
     }
 }
