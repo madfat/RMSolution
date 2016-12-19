@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `RMSolution`.`role` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `code` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`)
+)

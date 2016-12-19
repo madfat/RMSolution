@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `RMSolution`.`employee` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL,
   `dob` DATE NULL,
   `gender` VARCHAR(45) NULL,
@@ -24,4 +24,4 @@ CREATE TABLE IF NOT EXISTS `RMSolution`.`employee` (
   `last_mod_date` DATETIME NULL,
   `last_mod_user` VARCHAR(45) NULL,
   PRIMARY KEY (`id`)
-);
+)
